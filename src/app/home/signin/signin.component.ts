@@ -5,10 +5,10 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 import { PlatformDetectorService } from 'src/app/core/platform-detector/platform-detector.service';
 
 @Component({
-    templateUrl:  './singin.component.html'
+    templateUrl:  './signin.component.html'
 
 })
-export class SingInComponent implements OnInit {
+export class SignInComponent implements OnInit {
 
     loginForm: FormGroup;
     @ViewChild('userNameInput')userNameInput: ElementRef<HTMLInputElement>;
@@ -24,6 +24,8 @@ export class SingInComponent implements OnInit {
             userName: ['', Validators.required],
             password: ['', Validators.required]
         });
+        this.PlatformDetectorService.IsPlatformBrowser() &&
+            this.userNameInput.nativeElement.focus();
     }
 
     login() {

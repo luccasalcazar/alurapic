@@ -57,7 +57,7 @@ export class SignUpComponent implements OnInit {
                 Validators.minLength(8),
                 Validators.maxLength(14)
             ]
-        ], { validator: userNamePassword
+        ],  validator: userNamePassword
         });
         this.platformDetectorService.IsPlatformBrowser() &&
             this.emailInput.nativeElement.focus();
